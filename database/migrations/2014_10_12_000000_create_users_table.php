@@ -29,6 +29,11 @@ class CreateUsersTable extends Migration
             $table->boolean('to_be_logged_out')->default(false);
             $table->string('provider')->nullable();
             $table->string('provider_id')->nullable();
+            $table->string('date_of_birth')->nullable();
+            $table->string('platform')->nullable();
+            $table->string('residential_address')->nullable();
+            $table->string('registration_status')->nullable();
+            $table->string('phone_number')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
