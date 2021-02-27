@@ -112,15 +112,16 @@ class UserService extends BaseService
     public function store(array $data = []): User
     {
         DB::beginTransaction();
-
         try {
             $user = $this->createUser([
                 'type' => $data['type'],
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'password' => $data['password'],
-                'email_verified_at' => isset($data['email_verified']) && $data['email_verified'] === '1' ? now() : null,
+                'email_verified_at' => now(), //isset($data['email_verified']) && $data['email_verified'] === '1' ? now() : null,
                 'active' => isset($data['active']) && $data['active'] === '1',
+                'platform' => $data['platform'],
+                'registration_status' => $data['registration_status']
             ]);
 
             $user->syncRoles($data['roles'] ?? []);
@@ -130,7 +131,6 @@ class UserService extends BaseService
             }
         } catch (Exception $e) {
             DB::rollBack();
-
             throw new GeneralException(__('There was a problem creating this user. Please try again.'));
         }
 
@@ -331,6 +331,8 @@ class UserService extends BaseService
             'provider_id' => $data['provider_id'] ?? null,
             'email_verified_at' => $data['email_verified_at'] ?? null,
             'active' => $data['active'] ?? true,
+            'platform' => $data['platform'] ?? null,
+            'registration_status' => $data['registration_status']?? null
         ]);
     }
 }

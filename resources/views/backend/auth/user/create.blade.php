@@ -61,6 +61,30 @@
                     </div><!--form-group-->
 
                     <div class="form-group row">
+                        <label for="name" class="col-md-2 col-form-label">@lang('Platform')</label>
+
+                        <div class="col-md-10">
+                            <select name="platform" class="form-control">
+                                <option value="german south">@lang('German South')</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="name" class="col-md-2 col-form-label">@lang('Registration Progress')</label>
+
+                        <div class="col-md-10">
+                            <select name="registration_status" class="form-control">
+                                <option value="processing">@lang('In Progress')</option>
+                                <option value="done">@lang('Done')</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group row">
                         <label for="active" class="col-md-2 col-form-label">@lang('Active')</label>
 
                         <div class="col-md-10">
