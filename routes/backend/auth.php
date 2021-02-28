@@ -39,6 +39,8 @@ Route::group([
 
             Route::post('/', [UserController::class, 'store'])->name('store');
 
+            Route::get('user_list',[UserController::class, 'user_list'])->name('user_list');
+
             Route::group(['prefix' => '{user}'], function () {
                 Route::get('edit', [UserController::class, 'edit'])
                     ->name('edit')
