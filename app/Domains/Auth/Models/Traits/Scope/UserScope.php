@@ -69,4 +69,9 @@ trait UserScope
     {
         return $query->where('type', $this::TYPE_USER);
     }
+
+    public function  scopeOnlyNonSuperUsers($query)
+    {
+        return $query->where('name','<>','Super Admin');
+    }
 }

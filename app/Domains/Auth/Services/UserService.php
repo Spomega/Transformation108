@@ -46,6 +46,14 @@ class UserService extends BaseService
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function getNonSuperAdminUsers()
+    {
+        return $this->where('name','Super Admin','<>')->get();
+    }
+
+    /**
      * @param  array  $data
      *
      * @return mixed

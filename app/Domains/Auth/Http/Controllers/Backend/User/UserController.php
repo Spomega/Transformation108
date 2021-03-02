@@ -133,4 +133,9 @@ class UserController extends Controller
 
         return redirect()->route('admin.auth.user.deleted')->withFlashSuccess(__('The user was successfully deleted.'));
     }
+
+    public function userList()
+    {
+        return view('backend.auth.user.index');
+    }
 }
