@@ -22,8 +22,8 @@
         <li class="c-sidebar-nav-item">
             <x-utils.link
                 class="c-sidebar-nav-link"
-                :href="route('admin.dashboard')"
-                :active="activeClass(Route::is('admin.dashboard'), 'c-active')"
+                :href="route('admin.auth.user.user_list')"
+                :active="activeClass(Route::is('admin.auth.user.user_list'), 'c-active')"
                 icon="c-sidebar-nav-icon cil-user"
                 :text="__('Users')" />
         </li>

@@ -19,7 +19,7 @@ class TransUsersTable extends TableComponent
     {
       $query = User::with('roles');
 
-     return $query->onlyNonSuperUsers();
+      return $query->onlyNonSuperUsers();
 
     }
 
@@ -32,6 +32,20 @@ class TransUsersTable extends TableComponent
         return [
 
             Column::make(__('Name'), 'name')
+                ->searchable()
+                ->sortable(),
+
+            Column::make(__('Platform'), 'platform')
+                ->searchable()
+                ->sortable(),
+            Column::make(__('Registration Date'), 'created_at')
+                ->searchable()
+                ->sortable()
+                ->format(function (User $model) {
+                    $date = date_create($model->getAttributeValue('created_at'));
+                    return date_format($date,'d F Y');
+                }),
+            Column::make(__('Registration Status'), 'registration_status')
                 ->searchable()
                 ->sortable(),
         ];
