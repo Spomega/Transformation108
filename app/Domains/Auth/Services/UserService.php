@@ -343,4 +343,18 @@ class UserService extends BaseService
             'registration_status' => $data['registration_status']?? null
         ]);
     }
+
+    /**
+     * @return int
+     */
+    public function getUserCountInProcessing() {
+        return $this->where('registration_status','processing','=')->count();
+    }
+
+    /**
+     * @return int
+     */
+    public function getUserProcessedCount() {
+        return $this->where('registration_status','done','=')->count();
+    }
 }

@@ -75,7 +75,6 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         $user = $this->userService->store($request->validated());
-
         return redirect()->route('admin.auth.user.show', $user)->withFlashSuccess(__('The user was successfully created.'));
     }
 
