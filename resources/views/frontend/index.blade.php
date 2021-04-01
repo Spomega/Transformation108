@@ -71,7 +71,7 @@
     <body>
         @include('includes.partials.read-only')
         @include('includes.partials.logged-in-as')
-        @include('includes.partials.announcements')
+{{--        @include('includes.partials.announcements')--}}
 
         <div id="app" class="flex-center position-ref full-height">
             <div class="top-right links">
@@ -93,9 +93,12 @@
             <div class="content">
                 @include('includes.partials.messages')
 
+                <div class="image">
+                    <img src = "img/transformation.jpeg" width="500" height="500"/>
+                </div>
                 <div class="title m-b-md">
 {{--                    <example-component></example-component>--}}
-                    Transformations108
+                    Transformation 108
                 </div><!--title-->
 
 {{--                <div class="links">--}}

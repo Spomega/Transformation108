@@ -18,6 +18,13 @@
                 :text="__('Dashboard')" />
         </li>
 
+        @if (
+          $logged_in_user->hasAllAccess() ||
+          (
+              $logged_in_user->can('admin.access.user.list') ||
+              $logged_in_user->can('admin.access.user.view_tusers')
+          )
+      )
         <li class="c-sidebar-nav-title">Transformations</li>
         <li class="c-sidebar-nav-item">
             <x-utils.link
@@ -27,6 +34,7 @@
                 icon="c-sidebar-nav-icon cil-user"
                 :text="__('Users')" />
         </li>
+        @endif
 
         @if (
             $logged_in_user->hasAllAccess() ||
